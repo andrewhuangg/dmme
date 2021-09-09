@@ -1,0 +1,142 @@
+.auth {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+  &__container {
+    flex: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $main;
+  }
+
+  &__container-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    background-color: $secondary;
+    transition: 0.8s ease;
+
+    p {
+      font-size: 1.5rem;
+      font-family: $font-main;
+      color: $fontOne;
+      font-weight: 900;
+    }
+  }
+
+  &__form {
+  }
+
+  &__form-input-container {
+    margin: 1rem 0rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 0.45rem;
+      color: $fontOne;
+      font-size: 12px;
+      font-family: $font-main;
+      letter-spacing: 0.7px;
+      line-height: 1.3;
+    }
+
+    input {
+      padding: 0.55rem 0.4rem;
+      width: 85%;
+      font-size: 14px;
+      outline: none;
+      transition: all 150ms ease-in-out 0s;
+      border: 1px solid $secondary;
+      border-radius: 4px;
+      background-color: rgba(85, 140, 168, 0.35);
+      color: $fontOne;
+
+      &::placeholder {
+        color: $attribute;
+        width: 100%;
+        font-weight: unset;
+        font-family: $font-main;
+      }
+
+      &:hover {
+        border-color: $supportColor;
+      }
+
+      &:focus,
+      &:active {
+        box-shadow: 0px 0px 0px 1.5px $secondary;
+        border-color: $secondary;
+      }
+    }
+  }
+
+  &__form-input-password {
+    position: absolute;
+    right: 13%;
+    top: 50%;
+    cursor: pointer;
+  }
+
+  &__text {
+    margin-top: 0.2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: $fontOne;
+    }
+
+    span {
+      margin-left: 0.5rem;
+      color: $attribute;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+
+  &__image-container {
+    flex: 3;
+    display: flex;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__btn {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+
+    button {
+      padding: 0.7rem 1.2rem;
+      color: $fontOne;
+      background: $buttonOne;
+      border: 1px solid $buttonOne;
+      outline: none;
+      border-radius: 4px;
+      font-family: $font-main;
+      font-weight: 500;
+      transition: 0.3s ease;
+      cursor: pointer;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+}

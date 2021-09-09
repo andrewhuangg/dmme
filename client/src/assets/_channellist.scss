@@ -1,0 +1,22 @@
+.channel-list {
+  &__list-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary;
+    width: 240px;
+  }
+
+  &__header {
+    padding-left: 16px;
+    height: 62px;
+  }
+
+  &__header-text {
+    font-family: $font-main;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: $fontOne;
+  }
+}
