@@ -1,0 +1,32 @@
+// Breakpoints
+//1024pxs for desktops / 16 ~ apparently em is the most consistent across browsers
+@media (min-width: 64em) {
+  // styles go here
+}
+
+// 800px, 960px, 1070px
+$breakpoints-up: (
+  'medium': '50em',
+  'large': '60em',
+  'xlarge': '66.875em',
+);
+
+// 399px, 649px, 799px, 959px
+$breakpoints-down: (
+  'xsmall': '24.9375em',
+  'small': '40.5625em',
+  'medium': '49.9375em',
+  'large': '59.9375em',
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 da5cdb56b659772f7dab57bebbb9f2d8190c97ac Andrew <drewhuangg@gmail.com> 1630623855 -0700	commit (initial): Initialize project using Create React App
+da5cdb56b659772f7dab57bebbb9f2d8190c97ac ee879619be331b4576674b0cfb3106c760009adc Andrew <drewhuangg@gmail.com> 1630624569 -0700	commit: first commit - create-react-app
+ee879619be331b4576674b0cfb3106c760009adc c78d0055c7bac708fe6191b91e636d643486e2a5 Andrew <drewhuangg@gmail.com> 1630627964 -0700	commit: set up component skeletons
+c78d0055c7bac708fe6191b91e636d643486e2a5 34a16775029212072273bee3ef8f0b902fd290f9 Andrew <drewhuangg@gmail.com> 1630629252 -0700	commit: scss
+34a16775029212072273bee3ef8f0b902fd290f9 25908673e32b395980bf758b35dd2e88d1f55c9e Andrew <drewhuangg@gmail.com> 1630637335 -0700	commit: style sidebar and icons, create more skeleton components
+25908673e32b395980bf758b35dd2e88d1f55c9e 005b80adb49e75de1a799432ce48d8c83567fbf5 Andrew <drewhuangg@gmail.com> 1631138249 -0700	commit: channellist channelsearch teamchannellist addicon searchicon mixins
+005b80adb49e75de1a799432ce48d8c83567fbf5 d9c2be9a6f46b19cdf44748a755d8d62100a8f54 Andrew <drewhuangg@gmail.com> 1631140031 -0700	commit: teamchannelpreview, add channellist messaging, basic styles
+d9c2be9a6f46b19cdf44748a755d8d62100a8f54 13d41d96fe9e1dccd0d5e71902668d37d1fd26ae Andrew <drewhuangg@gmail.com> 1631144433 -0700	commit: auth skeleton and styles

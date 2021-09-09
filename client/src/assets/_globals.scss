@@ -1,0 +1,21 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+#root {
+  height: 100%;
+}

@@ -1,0 +1,46 @@
+.channel-search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid $main;
+
+  &__input-wrapper {
+    width: 95%;
+    height: 40px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    background: rgba(85, 140, 168, 0.35);
+    border-radius: 8px;
+    border: 1px solid transparent;
+
+    &:focus-within {
+      border: 1px solid $supportColor;
+    }
+  }
+
+  &__icon {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__input-text {
+    background: none;
+    border: none;
+    color: $fontOne;
+    font-family: $font-main;
+    font-size: 18px;
+    outline: none;
+
+    &::placeholder {
+      color: $attribute;
+    }
+  }
+}
