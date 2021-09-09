@@ -8,13 +8,27 @@ import Auth from './commponents/Auth';
 
 import './assets/style.scss';
 
-const apiKey = '5uns9nzdeq5d';
+const cookies = new Cookies();
+const authToken = cookies.get('token');
+
+const apiKey = process.env.REACT_APP_API_KEY;
 
 // create instance of chat
 const client = StreamChat.getInstance(apiKey);
 
-// authentication
-const authToken = false;
+if (authToken) {
+  client.connectUser(
+    {
+      id: cookies.get('userId'),
+      name: cookies.get('username'),
+      fullName: cookies.get('fullName'),
+      image: cookies.get('avatarURL'),
+      hashedPassword: cookies.get('hashedPassword'),
+      phoneNumber: cookies.get('phoneNumber'),
+    },
+    authToken
+  );
+}
 
 const App = () => {
   if (!authToken) return <Auth />;

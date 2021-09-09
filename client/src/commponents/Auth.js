@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import Landscape from '../assets/images/landscape.jpg';
 
+const cookies = new Cookies();
+
 const initialState = {
   fullName: '',
   username: '',
@@ -24,8 +26,40 @@ const Auth = () => {
     setIsSignUp((prevSignUp) => !prevSignUp);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // * FORM DATA
+    const { fullName, username, password, phoneNumber, avatarURL } = form;
+
+    // * REQUEST URL
+    const URL = 'http://localhost:5000/auth';
+
+    // * RESPONSE DATA DEPENDING ON isSignUp
+    const { data } = await axios.post(`${URL}/${isSignUp ? 'signup' : 'login'}`, {
+      fullName,
+      username,
+      password,
+      phoneNumber,
+      avatarURL,
+    });
+
+    const { token, userId, hashedPassword } = data;
+
+    // * STORE DATA IN COOKIES
+    cookies.set('token', token);
+    cookies.set('username', username);
+    cookies.set('fullName', fullName);
+    cookies.set('userId', userId);
+
+    if (isSignUp) {
+      cookies.set('phoneNumber', phoneNumber);
+      cookies.set('avatarURL', avatarURL);
+      cookies.set('hashedPassword', hashedPassword);
+    }
+
+    // * RELOAD TO CHANGE AUTH STATUS IN APP COMPONENT
+    window.location.reload();
   };
 
   return (
