@@ -7,7 +7,9 @@ import ChannelSearch from './ChannelSearch';
 import TeamChannelList from './TeamChannelList';
 import TeamChannelPreview from './TeamChannelPreview';
 
-const SideBar = () => {
+const cookies = new Cookies();
+
+const SideBar = ({ logout }) => {
   return (
     <>
       <div className='channel-list__sidebar'>
@@ -17,7 +19,7 @@ const SideBar = () => {
           </div>
         </div>
         <div className='channel-list__sidebar__icon'>
-          <div className='channel-list__sidebar__icon-inner'>
+          <div className='channel-list__sidebar__icon-inner' onClick={logout}>
             <img src={LogoutIcon} alt='logout' />
           </div>
         </div>
@@ -37,9 +39,21 @@ const Header = () => {
 };
 
 const ChannelListContainer = () => {
+  const logout = () => {
+    cookies.remove('token');
+    cookies.remove('userId');
+    cookies.remove('username');
+    cookies.remove('fullName');
+    cookies.remove('avatarURL');
+    cookies.remove('hashedPassword');
+    cookies.remove('phoneNumber');
+
+    window.location.reload();
+  };
+
   return (
     <>
-      <SideBar />
+      <SideBar logout={logout} />
       <div className='channel-list__list-wrapper'>
         <Header />
         <ChannelSearch />
