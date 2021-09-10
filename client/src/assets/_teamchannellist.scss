@@ -29,6 +29,17 @@
     font-family: $font-main;
     font-size: 13px;
     line-height: 16px;
-    color: $headerOne;
+    color: $fontOne;
+  }
+
+  &__add-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__add {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
   }
 }

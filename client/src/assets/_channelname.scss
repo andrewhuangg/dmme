@@ -1,0 +1,38 @@
+.channelname {
+  display: flex;
+  flex-direction: column;
+  height: 169px;
+  padding-left: 20px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin-top: 30px;
+    font-family: $font-main;
+    font-size: 16px;
+    line-height: 120%;
+    color: $headerOne;
+  }
+
+  input {
+    height: 50px;
+    width: 90%;
+    padding-left: 16px;
+    font-family: $font-main;
+    font-size: 18px;
+    color: $main;
+    background-color: rgba(221, 221, 221, 0.2);
+    border: 1px solid rgba(221, 221, 221, 0.4);
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    &:focus {
+      border: 1px solid $main;
+      outline: none;
+    }
+
+    &::placeholder {
+      font-weight: 300;
+      color: $main;
+    }
+  }
+}
