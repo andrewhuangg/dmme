@@ -8,7 +8,7 @@ import EditChannel from './EditChannel';
 const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType }) => {
   const { channel } = useChatContext();
 
-  if (!isCreating) {
+  if (isCreating) {
     return (
       <div className='channelcontainer'>
         <CreateChannel createType={createType} setIsCreating={setIsCreating} />
@@ -16,7 +16,7 @@ const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, 
     );
   }
 
-  if (!isEditing) {
+  if (isEditing) {
     return (
       <div className='channelcontainer'>
         <EditChannel setIsEditing={setIsEditing} />
@@ -25,12 +25,14 @@ const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, 
   }
 
   const EmptyChatHistory = () => {
-    <div className='channelcontainer__empty'>
-      <p className='channelcontainer__empty-first'>This is the beginning of your chat history.</p>
-      <p className='channelcontainer__empty-second'>
-        Send direct messages, attachments, emojis, and more!
-      </p>
-    </div>;
+    return (
+      <div className='channelcontainer__empty'>
+        <p className='channelcontainer__empty-first'>This is the beginning of your chat history.</p>
+        <p className='channelcontainer__empty-second'>
+          Send direct messages, attachments, emojis, and more!
+        </p>
+      </div>
+    );
   };
 
   return (

@@ -6,8 +6,8 @@ import ChannelListContainer from './commponents/ChannelListContainer';
 import ChannelContainer from './commponents/ChannelContainer';
 import Auth from './commponents/Auth';
 
-import 'stream-chat-react/dist/css/index.css';
 import './assets/style.scss';
+import 'stream-chat-react/dist/scss/index.scss';
 
 const cookies = new Cookies();
 const authToken = cookies.get('token');

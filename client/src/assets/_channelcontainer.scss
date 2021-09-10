@@ -1,0 +1,31 @@
+.channelcontainer {
+  height: 100%;
+  width: 100%;
+
+  &__empty {
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__empty-first {
+    margin-bottom: 10px;
+    font-family: $font-main;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 120%;
+    color: $main;
+  }
+
+  &__empty-second {
+    font-family: $font-main;
+    font-size: 14px;
+    line-height: 120%;
+    margin: 0;
+    color: $secondary;
+  }
+}
