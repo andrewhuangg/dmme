@@ -28,4 +28,24 @@
     width: 20px;
     cursor: pointer;
   }
+
+  &__btn {
+    height: 82px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom-right-radius: 16px;
+
+    p {
+      padding: 10px 20px;
+      background-color: $buttonOne;
+      font-family: $font-main;
+      font-weight: bold;
+      font-size: 18px;
+      color: $fontOne;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
 }

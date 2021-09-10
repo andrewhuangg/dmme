@@ -28,7 +28,9 @@
     }
   }
 
-  &__loading {
+  &__loading,
+  &__empty-list,
+  &__error {
     margin: 20px;
     font-family: $font-main;
     font-size: 16px;

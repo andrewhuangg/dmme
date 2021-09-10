@@ -14,9 +14,18 @@ const UserListContainer = ({ children }) => {
   );
 };
 
-const UserListItem = ({ user }) => {
+const UserListItem = ({ user, setSelectedUsers }) => {
   const [isInvited, setIsInvited] = useState(false);
+
   const handleInvite = (e) => {
+    if (isInvited) {
+      // filter out invited users
+      setSelectedUsers((prevUsers) => prevUsers.filter((prevUser) => prevUser !== user.id));
+    } else {
+      // invite users
+      setSelectedUsers((prevUsers) => [...prevUsers, user.id]);
+    }
+
     setIsInvited((prev) => !prev);
   };
 
@@ -35,11 +44,12 @@ const UserListItem = ({ user }) => {
   );
 };
 
-const UserList = () => {
+const UserList = ({ setSelectedUsers }) => {
   const { client } = useChatContext();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isListEmpty, setIsListEmpty] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -60,7 +70,7 @@ const UserList = () => {
           setIsListEmpty(true);
         }
       } catch (error) {
-        console.log(error);
+        setError(true);
       }
 
       setLoading(false);
@@ -69,12 +79,30 @@ const UserList = () => {
     if (client) getUsers();
   }, []);
 
+  if (error) {
+    return (
+      <UserListContainer>
+        <div className='userlistcontainer__error'>Error, please refresh and try again.</div>
+      </UserListContainer>
+    );
+  }
+
+  if (isListEmpty) {
+    return (
+      <UserListContainer>
+        <div className='userlistcontainer__empty-list'>No Users Found.</div>
+      </UserListContainer>
+    );
+  }
+
   return (
     <UserListContainer>
       {loading ? (
         <div className='userlistcontainer__loading'>Loading Users...</div>
       ) : (
-        users?.map((user, i) => <UserListItem index={i} key={user.id} user={user} />)
+        users?.map((user, i) => (
+          <UserListItem index={i} key={user.id} user={user} setSelectedUsers={setSelectedUsers} />
+        ))
       )}
     </UserListContainer>
   );
