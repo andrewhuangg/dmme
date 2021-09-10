@@ -12,7 +12,12 @@
         "../../src/assets/_channelsearch.scss",
         "../../src/assets/_teamchannellist.scss",
         "../../src/assets/_teamchannelpreview.scss",
-        "../../src/assets/_auth.scss"
+        "../../src/assets/_auth.scss",
+        "../../src/assets/_channelcontainer.scss",
+        "../../src/assets/_channelinner.scss",
+        "../../src/assets/_createchannel.scss",
+        "../../src/assets/_editchannel.scss",
+        "../../src/assets/_teammessage.scss"
     ],
     "names": [],
     "file": "style.min.css"
