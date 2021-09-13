@@ -19,4 +19,42 @@
     line-height: 28px;
     color: $fontOne;
   }
+
+  &__container {
+    height: 100%;
+    display: flex;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.33);
+  }
+
+  &__mobile {
+    height: 100%;
+    width: 90%;
+    top: 0%;
+    position: absolute;
+    display: none;
+    box-shadow: inset 1px 0px 0px rgba(0, 0, 0, 0.1);
+    transition: 0.8s ease;
+    z-index: 5;
+
+    &.mobile-true {
+      left: 0%;
+    }
+
+    &.mobile-false {
+      left: -89%;
+      background-color: $third;
+    }
+  }
+
+  &__toggle {
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    right: -2%;
+    position: absolute;
+    display: none;
+    background: $buttonOne;
+    border-radius: 50%;
+    z-index: 2;
+  }
 }

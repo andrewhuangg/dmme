@@ -10,6 +10,7 @@ const TeamChannelList = ({
   setIsCreating,
   setCreateType,
   setIsEditing,
+  setToggleWidth,
 }) => {
   if (error) {
     return type === 'team' ? (
@@ -46,7 +47,7 @@ const TeamChannelList = ({
               setCreateType(type === 'team' ? 'team' : 'messaging');
               setIsCreating((prev) => !prev);
               setIsEditing(false);
-              // if (setToggle) setToggle((prev) => !prev);
+              if (setToggleWidth) setToggleWidth((prevToggle) => !prevToggle);
             }}
           />
         </div>

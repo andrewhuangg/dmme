@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 import DmmeIcon from '../assets/images/dmmeicon.png';
@@ -38,7 +38,23 @@ const Header = () => {
   );
 };
 
-const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+const TeamChannelFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'team');
+};
+
+const DirectMessageChannelFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'message');
+};
+
+const ChannelListContent = ({
+  isCreating,
+  setIsCreating,
+  setCreateType,
+  setIsEditing,
+  setToggleWidth,
+}) => {
+  const { client } = useChatContext();
+
   const logout = () => {
     cookies.remove('token');
     cookies.remove('userId');
@@ -51,6 +67,9 @@ const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsE
     window.location.reload();
   };
 
+  // * grab all channels and dms where our user is included
+  const filters = { members: { $in: [client.userID] } };
+
   return (
     <>
       <SideBar logout={logout} />
@@ -58,8 +77,8 @@ const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsE
         <Header />
         <ChannelSearch />
         <ChannelList
-          filters={{}}
-          channelRenderFilterFn={() => {}}
+          filters={filters}
+          channelRenderFilterFn={TeamChannelFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
@@ -68,13 +87,24 @@ const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsE
               setIsCreating={setIsCreating}
               setCreateType={setCreateType}
               setIsEditing={setIsEditing}
+              setToggleWidth={setToggleWidth}
+              setToggleWidth={setToggleWidth}
             />
           )}
-          Preview={(previewProps) => <TeamChannelPreview {...previewProps} type='team' />}
+          Preview={(previewProps) => (
+            <TeamChannelPreview
+              {...previewProps}
+              type='team'
+              setToggleWidth={setToggleWidth}
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+            />
+          )}
         />
+
         <ChannelList
-          filters={{}}
-          channelRenderFilterFn={() => {}}
+          filters={filters}
+          channelRenderFilterFn={DirectMessageChannelFilter}
           List={(listProps) => (
             <TeamChannelList
               {...listProps}
@@ -83,10 +113,51 @@ const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsE
               setIsCreating={setIsCreating}
               setCreateType={setCreateType}
               setIsEditing={setIsEditing}
+              setToggleWidth={setToggleWidth}
             />
           )}
-          Preview={(previewProps) => <TeamChannelPreview {...previewProps} type='messaging' />}
+          Preview={(previewProps) => (
+            <TeamChannelPreview
+              {...previewProps}
+              type='messaging'
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleWidth={setToggleWidth}
+            />
+          )}
         />
+      </div>
+    </>
+  );
+};
+
+const ChannelListContainer = ({ setIsCreating, setCreateType, setIsEditing }) => {
+  const [toggleWidth, setToggleWidth] = useState(false);
+
+  return (
+    <>
+      <div className='channel-list__container'>
+        {/* Desktop */}
+        <ChannelListContent
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+        />
+
+        <div className={`channel-list__mobile mobile-${toggleWidth}`}>
+          <div
+            className='channel-list__toggle'
+            onClick={() => setToggleWidth((prevToggle) => !prevToggle)}
+          ></div>
+
+          {/* Mobile */}
+          <ChannelListContent
+            setIsCreating={setIsCreating}
+            setCreateType={setCreateType}
+            setIsEditing={setIsEditing}
+            setToggleWidth={setToggleWidth}
+          />
+        </div>
       </div>
     </>
   );
