@@ -26,8 +26,12 @@ const TeamChannelPreview = ({
 
     return (
       <div className='channel-preview__item single'>
-        <Avatar image={members[0]?.user?.image} name={members[0]?.user?.fullName} size={24} />
-        <p>{members[0]?.user?.fullName}</p>
+        <Avatar
+          image={members[0]?.user?.image}
+          name={members[0]?.user?.fullName || members[0]?.user?.id}
+          size={24}
+        />
+        <p>{members[0]?.user?.fullName || members[0]?.user?.id}</p>
       </div>
     );
   };

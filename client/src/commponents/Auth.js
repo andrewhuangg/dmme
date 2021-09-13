@@ -30,21 +30,21 @@ const Auth = () => {
     e.preventDefault();
 
     // * FORM DATA
-    const { fullName, username, password, phoneNumber, avatarURL } = form;
+    const { username, password, phoneNumber, avatarURL } = form;
 
     // * REQUEST URL
     const URL = 'http://localhost:5000/auth';
 
     // * RESPONSE DATA DEPENDING ON isSignUp
     const { data } = await axios.post(`${URL}/${isSignUp ? 'signup' : 'login'}`, {
-      fullName,
       username,
       password,
       phoneNumber,
       avatarURL,
+      fullName: form.fullName,
     });
 
-    const { token, userId, hashedPassword } = data;
+    const { token, userId, hashedPassword, fullName } = data;
 
     // * STORE DATA IN COOKIES
     cookies.set('token', token);

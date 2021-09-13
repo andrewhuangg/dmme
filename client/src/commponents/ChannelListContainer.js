@@ -43,7 +43,7 @@ const TeamChannelFilter = (channels) => {
 };
 
 const DirectMessageChannelFilter = (channels) => {
-  return channels.filter((channel) => channel.type === 'message');
+  return channels.filter((channel) => channel.type === 'messaging');
 };
 
 const ChannelListContent = ({
