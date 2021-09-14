@@ -1,0 +1,52 @@
+.editchannel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    padding-right: 20px;
+
+    p {
+      font-family: Helvetica Neue, sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #2c2c30;
+      margin-left: 20px;
+    }
+  }
+
+  &__close-container {
+  }
+
+  &__close {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  &__btn {
+    height: 82px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom-right-radius: 16px;
+
+    p {
+      padding: 10px 20px;
+      background-color: $buttonOne;
+      font-family: $font-main;
+      font-weight: bold;
+      font-size: 18px;
+      color: $fontOne;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}

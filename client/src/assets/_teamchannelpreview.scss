@@ -4,24 +4,23 @@
   align-items: center;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: $sidebarHover;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     font-weight: bold;
-    margin-right: 16px;
     cursor: pointer;
   }
 
   &__selected {
     height: auto;
-    margin-right: 16px;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.2);
+    background-color: $main;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+    opacity: 0.8;
     z-index: 2;
   }
 
