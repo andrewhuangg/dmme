@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <>
       <div className='channel-list__header'>
-        <p className='channel-list__header-text'>header</p>
+        <p className='channel-list__header-text'>dMMe</p>
       </div>
     </>
   );
