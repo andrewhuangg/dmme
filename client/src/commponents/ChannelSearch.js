@@ -22,7 +22,7 @@ const ChannelSearch = ({ setToggleWidth }) => {
       const channelResponse = client.queryChannels({
         type: 'team',
         name: { $autocomplete: text },
-        members: { $in: [client.userId] },
+        members: { $in: [client.userID] },
       });
 
       const userResponse = client.queryUsers({
@@ -30,8 +30,9 @@ const ChannelSearch = ({ setToggleWidth }) => {
         name: { $autocomplete: text },
       });
 
-      // * instead of awaiting both channelResponse and userResponse, we can await both instead and deconstruct;
       const [channels, { users }] = await Promise.all([channelResponse, userResponse]);
+
+      console.log(client.userID);
 
       if (channels.length) setTeamChannels(channels);
       if (users.length) setDirectChannels(users);
