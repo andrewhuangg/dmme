@@ -4,6 +4,7 @@ import axios from 'axios';
 import Landscape from '../assets/images/landscape.jpg';
 
 const cookies = new Cookies();
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const initialState = {
   fullName: '',
@@ -33,7 +34,7 @@ const Auth = () => {
     const { username, password, phoneNumber, avatarURL } = form;
 
     // * REQUEST URL
-    const URL = 'http://localhost:5000/auth';
+    const URL = SERVER_URL;
 
     // * RESPONSE DATA DEPENDING ON isSignUp
     const { data } = await axios.post(`${URL}/${isSignUp ? 'signup' : 'login'}`, {
